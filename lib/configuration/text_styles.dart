@@ -13,6 +13,7 @@ class TextStyles {
     color: AppColors.homePageOnboardingTextColor,
     fontSize: 18,
     fontFamily: 'NunitoSans',
+    height: 1.6,
   );
 
   static TextStyle homePageButtonTextTextStyle = const TextStyle(
