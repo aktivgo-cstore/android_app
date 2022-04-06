@@ -13,6 +13,7 @@ class TextStyles {
     color: AppColors.homePageOnboardingTextColor,
     fontSize: 18,
     fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w400,
     height: 1.6,
   );
 
@@ -20,5 +21,40 @@ class TextStyles {
     fontSize: 18,
     fontFamily: 'Gelasio',
     color: AppColors.homePageButtonTextColor,
+  );
+
+  static TextStyle helloLineTextStyle = const TextStyle(
+    fontSize: 30,
+    fontFamily: 'Merriweather',
+    fontWeight: FontWeight.normal,
+    color: AppColors.helloColor,
+  );
+
+  static TextStyle welcomeBackTextStyle = const TextStyle(
+    fontSize: 24,
+    fontFamily: 'Merriweather',
+    fontWeight: FontWeight.bold,
+    color: AppColors.welcomeBackColor,
+  );
+
+  static TextStyle formFieldTextStyle = const TextStyle(
+    color: AppColors.helloColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle textButtonForFormTextStyle = const TextStyle(
+    color: AppColors.welcomeBackColor,
+    fontSize: 18,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle elevatedButtonForFormTextStyle = const TextStyle(
+    color: AppColors.homePageButtonTextColor,
+    fontSize: 18,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
   );
 }

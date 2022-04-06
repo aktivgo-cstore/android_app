@@ -4,6 +4,7 @@ import '../configuration/assets.dart';
 import '../configuration/colors.dart';
 import '../configuration/text_constants.dart';
 import '../configuration/text_styles.dart';
+import 'login.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
