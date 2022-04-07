@@ -4,6 +4,7 @@ import '../configuration/assets.dart';
 import '../configuration/colors.dart';
 import '../configuration/text_constants.dart';
 import '../configuration/text_styles.dart';
+import 'form_field.dart';
 
 class LogInForm extends StatefulWidget {
   const LogInForm({Key? key}) : super(key: key);
@@ -29,77 +30,17 @@ class _LogInFormState extends State<LogInForm> {
             const SizedBox(
               height: 35,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                TextConstants.email,
-                style: TextStyles.formFieldTextStyle,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 30),
-              height: 42,
-              child: const TextField(
-                cursorColor: AppColors.cursorColor,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColors.textFieldLineColor,
-                      width: 2,
-                    ),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: AppColors.textFieldLineColor,
-                      width: 2,
-                    ),
-                  ),
-                ),
-              ),
+            RegistrationFormField(
+              label: TextConstants.email,
             ),
             const SizedBox(
               height: 35,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                TextConstants.password,
-                style: TextStyles.formFieldTextStyle,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 30),
-              height: 42,
-              child: Stack(
-                children: [
-                  const TextField(
-                    cursorColor: AppColors.cursorColor,
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: AppColors.textFieldLineColor,
-                          width: 4.5,
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: AppColors.textFieldLineColor,
-                          width: 4.5,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 19,
-                    bottom: 4,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Assets.eyeImage,
-                    ),
-                  ),
-                ],
+            RegistrationFormField(
+              label: TextConstants.password,
+              button: IconButton(
+                onPressed: () {},
+                icon: Assets.eyeImage,
               ),
             ),
             const SizedBox(
