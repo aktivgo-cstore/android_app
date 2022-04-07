@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../presentation/home.dart';
 import '../presentation/login.dart';
+import '../presentation/signup.dart';
 
 class Application extends StatelessWidget {
   const Application({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class Application extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LogIn(),
+      home: const SignUp(),
     );
   }
 }

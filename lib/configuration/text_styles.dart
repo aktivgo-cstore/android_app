@@ -57,4 +57,18 @@ class TextStyles {
     fontFamily: 'NunitoSans',
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle alreadyHaveAnAccauntTextStyle = const TextStyle(
+    color: AppColors.homePageOnboardingTextColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle signInTextStyle = const TextStyle(
+    color: AppColors.welcomeBackColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w700,
+  );
 }

@@ -11,4 +11,10 @@ class TextConstants {
   static const login = 'Log in';
   static const forgotPassword = 'Forgot Password';
   static const signUp = 'SIGN UP';
+
+  static const welcome = 'WELCOME';
+  static const name = 'Name';
+  static const confirmPassword = 'Confirm Password';
+  static const alreadyHaveAccount = 'Already have account?';
+  static const signIn = 'SIGN IN';
 }
