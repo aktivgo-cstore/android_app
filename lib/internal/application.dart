@@ -14,7 +14,7 @@ class Application extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignUp(),
+      home: const LogIn(),
     );
   }
 }
