@@ -22,4 +22,6 @@ class TextConstants {
   static const happy = 'HAPPY';
 
   static const personalInformation = 'Personal information';
+  static const profile = 'Profile';
+  static const save = 'Save';
 }
