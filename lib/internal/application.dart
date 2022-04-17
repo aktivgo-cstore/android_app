@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../presentation/home.dart';
 import '../presentation/login/login.dart';
 import '../presentation/main_form/main_form.dart';
+import '../presentation/setting_changing_form/setting_changing_form.dart';
 import '../presentation/signup/signup.dart';
 
 class Application extends StatelessWidget {
@@ -15,7 +16,7 @@ class Application extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainForm(),
+      home: SettingChangingForm(),
     );
   }
 }

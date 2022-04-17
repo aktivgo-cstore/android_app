@@ -128,4 +128,11 @@ class TextStyles {
     fontFamily: 'NunitoSans',
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle saveTextStyle = const TextStyle(
+    color: AppColors.homePageButtonTextColor,
+    fontSize: 20,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
+  );
 }

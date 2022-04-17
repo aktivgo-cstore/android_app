@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../configuration/assets.dart';
+import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
 
 class TopProfileField extends StatelessWidget {
@@ -21,7 +22,7 @@ class TopProfileField extends StatelessWidget {
             ),
           ),
           Text(
-            'Profile',
+            TextConstants.profile,
             style: TextStyles.profileTextStyle,
           ),
           Padding(
