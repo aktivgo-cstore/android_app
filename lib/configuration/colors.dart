@@ -18,4 +18,6 @@ class AppColors {
   static const backgroundColor = Color.fromRGBO(250, 250, 250, 1);
 
   static const personalInfoColor = Color.fromRGBO(144, 145, 145, 1);
+
+  static const cartProductTileTitleColor = Color.fromRGBO(153, 153, 153, 1);
 }
