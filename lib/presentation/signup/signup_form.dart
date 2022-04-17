@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../configuration/assets.dart';
-import '../configuration/colors.dart';
-import '../configuration/text_constants.dart';
-import '../configuration/text_styles.dart';
-import 'form_field.dart';
+import '../../configuration/assets.dart';
+import '../../configuration/colors.dart';
+import '../../configuration/text_constants.dart';
+import '../../configuration/text_styles.dart';
+import '../form_field.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);

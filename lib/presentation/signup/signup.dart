@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../configuration/text_constants.dart';
-import '../configuration/text_styles.dart';
+import '../../configuration/text_constants.dart';
+import '../../configuration/text_styles.dart';
 import 'signup_form.dart';
-import 'top_stripe.dart';
+import '../top_stripe.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
