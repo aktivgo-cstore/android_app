@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../configuration/colors.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
-import '../main_form/settings_tile.dart';
 import 'setting_changing_tile.dart';
 
 class SettingChangingForm extends StatelessWidget {
@@ -12,6 +11,7 @@ class SettingChangingForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.backgroundColor,
       body: Column(
         children: [
