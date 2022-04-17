@@ -7,6 +7,7 @@ class TextStyles {
     color: AppColors.welcomeToColor,
     fontSize: 24,
     fontFamily: 'Gelasio',
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle homePageOnboardingTextStyle = const TextStyle(
@@ -26,14 +27,14 @@ class TextStyles {
   static TextStyle helloLineTextStyle = const TextStyle(
     fontSize: 30,
     fontFamily: 'Merriweather',
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w400,
     color: AppColors.helloColor,
   );
 
   static TextStyle welcomeBackTextStyle = const TextStyle(
     fontSize: 24,
     fontFamily: 'Merriweather',
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: AppColors.welcomeBackColor,
   );
 
@@ -70,5 +71,61 @@ class TextStyles {
     fontSize: 14,
     fontFamily: 'NunitoSans',
     fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle makeLifeTextStyle = const TextStyle(
+    color: AppColors.helloColor,
+    fontSize: 18,
+    fontFamily: 'Gelasio',
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle happyTextStyle = const TextStyle(
+    color: AppColors.homePageButtonColor,
+    fontSize: 18,
+    fontFamily: 'Gelasio',
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle productTitleTextStyle = const TextStyle(
+    color: AppColors.welcomeToColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle productPriceTextStyle = const TextStyle(
+    color: AppColors.welcomeBackColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle profileTextStyle = const TextStyle(
+    fontSize: 16,
+    fontFamily: 'Merriweather',
+    fontWeight: FontWeight.w700,
+    color: AppColors.welcomeBackColor,
+  );
+
+  static TextStyle personalInfoTextStyle = const TextStyle(
+    color: AppColors.personalInfoColor,
+    fontSize: 16,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle labelSettingsTileTextStyle = const TextStyle(
+    color: AppColors.homePageOnboardingTextColor,
+    fontSize: 12,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle valueSettingsTileTextStyle = const TextStyle(
+    color: AppColors.homePageButtonColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
   );
 }

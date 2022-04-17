@@ -12,4 +12,10 @@ class AppColors {
   static const textFieldLineColor = Color.fromRGBO(224, 224, 224, 1);
   static const tapButtonColor = Colors.black12;
   static const cursorColor = helloColor;
+
+  static const bottomFieldColor = Colors.white;
+
+  static const backgroundColor = Color.fromRGBO(250, 250, 250, 1);
+
+  static const personalInfoColor = Color.fromRGBO(144, 145, 145, 1);
 }

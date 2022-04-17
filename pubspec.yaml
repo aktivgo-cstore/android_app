@@ -12,8 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -30,7 +28,12 @@ flutter:
   fonts:
     - family: Gelasio
       fonts:
+        - asset: assets/fonts/Gelasio-Regular.ttf
+          weight: 400
         - asset: assets/fonts/Gelasio-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Gelasio-Bold.ttf
+          weight: 700
     - family: NunitoSans
       fonts:
         - asset: assets/fonts/NunitoSans-Regular.ttf
@@ -42,4 +45,6 @@ flutter:
     - family: Merriweather
       fonts:
         - asset: assets/fonts/Merriweather-Regular.ttf
+          weight: 400
         - asset: assets/fonts/Merriweather-Bold.ttf
+          weight: 700

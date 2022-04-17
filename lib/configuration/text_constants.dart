@@ -17,4 +17,9 @@ class TextConstants {
   static const confirmPassword = 'Confirm Password';
   static const alreadyHaveAccount = 'Already have account?';
   static const signIn = 'SIGN IN';
+
+  static const makeLife = 'Make life';
+  static const happy = 'HAPPY';
+
+  static const personalInformation = 'Personal information';
 }
