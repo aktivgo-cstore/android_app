@@ -24,4 +24,12 @@ class TextConstants {
   static const personalInformation = 'Personal information';
   static const profile = 'Profile';
   static const save = 'Save';
+
+  static const myCart = 'My cart';
+
+  static const total = 'Total:';
+
+  static const rub = '₽';
+
+  static const checkOut = 'Check out';
 }

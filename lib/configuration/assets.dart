@@ -78,4 +78,28 @@ class Assets {
     height: 24,
     width: 24,
   );
+
+  static final previousImage = Image.asset(
+    'assets/images/previous_icon.png',
+    height: 20,
+    width: 20,
+  );
+
+  static final plusImage = Image.asset(
+    'assets/images/plus_icon.png',
+    height: 14,
+    width: 14,
+  );
+
+  static final minusImage = Image.asset(
+    'assets/images/minus_icon.png',
+    height: 2,
+    width: 14,
+  );
+
+  static final deleteImage = Image.asset(
+    'assets/images/delete_icon.png',
+    height: 20,
+    width: 20,
+  );
 }

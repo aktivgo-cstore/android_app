@@ -135,4 +135,39 @@ class TextStyles {
     fontFamily: 'NunitoSans',
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle cartProductTileTitleTextStyle = const TextStyle(
+    color: AppColors.cartProductTileTitleColor,
+    fontSize: 14,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle cartProductTilePriceTextStyle = const TextStyle(
+    color: AppColors.homePageButtonColor,
+    fontSize: 16,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle cartProductTileCountTextStyle = const TextStyle(
+    color: AppColors.homePageButtonColor,
+    fontSize: 18,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle cartTotalTextStyle = const TextStyle(
+    color: AppColors.homePageOnboardingTextColor,
+    fontSize: 20,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle cartSumTextStyle = const TextStyle(
+    color: AppColors.welcomeBackColor,
+    fontSize: 20,
+    fontFamily: 'NunitoSans',
+    fontWeight: FontWeight.w700,
+  );
 }

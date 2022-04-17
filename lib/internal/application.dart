@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../presentation/cart/cart.dart';
 import '../presentation/home.dart';
 import '../presentation/login/login.dart';
 import '../presentation/main_form/main_form.dart';
@@ -16,7 +17,7 @@ class Application extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SettingChangingForm(),
+      home: Cart(),
     );
   }
 }
