@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../configuration/assets.dart';
 import '../configuration/colors.dart';
+import '../configuration/providers.dart';
 import '../configuration/text_styles.dart';
 
-class RegistrationFormField extends StatelessWidget {
-  String _label;
-  IconButton? _button;
+class RegistrationFormField extends ConsumerWidget {
+  final String _label;
+  final IconButton? _button;
 
-  RegistrationFormField({Key? key, required String label, IconButton? button})
-      : _label = label,
+  const RegistrationFormField({
+    Key? key,
+    required String label,
+    IconButton? button,
+  })  : _label = label,
         _button = button,
         super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     if (_button == null) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,10 +74,13 @@ class RegistrationFormField extends StatelessWidget {
           height: 42,
           child: Stack(
             children: [
-              const TextField(
+              TextField(
+                obscureText: ref
+                    .watch(AppProviders.passwordObscureTextProvider.state)
+                    .state,
                 cursorColor: AppColors.cursorColor,
                 keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: AppColors.textFieldLineColor,

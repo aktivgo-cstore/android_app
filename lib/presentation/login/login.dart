@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/providers.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
 import 'login_form.dart';
