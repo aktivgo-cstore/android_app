@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/colors.dart';
+import '../../configuration/providers.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
 import '../form_field.dart';
 
-class LogInForm extends StatefulWidget {
+class LogInForm extends ConsumerWidget {
   const LogInForm({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return _LogInFormState();
-  }
-}
-
-class _LogInFormState extends State<LogInForm> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       height: 477,
       child: Card(
@@ -31,7 +26,7 @@ class _LogInFormState extends State<LogInForm> {
             const SizedBox(
               height: 35,
             ),
-            RegistrationFormField(
+            const RegistrationFormField(
               label: TextConstants.email,
             ),
             const SizedBox(
@@ -40,7 +35,14 @@ class _LogInFormState extends State<LogInForm> {
             RegistrationFormField(
               label: TextConstants.password,
               button: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  var obscureText = ref
+                      .watch(AppProviders.passwordObscureTextProvider.state)
+                      .state;
+                  ref
+                      .read(AppProviders.passwordObscureTextProvider.state)
+                      .state = !obscureText;
+                },
                 icon: Assets.eyeImage,
               ),
             ),

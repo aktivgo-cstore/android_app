@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/colors.dart';
+import '../../configuration/providers.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
 import '../form_field.dart';
 
-class SignUpForm extends StatefulWidget {
+class SignUpForm extends ConsumerWidget {
   const SignUpForm({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return _SignUpFormState();
-  }
-}
-
-class _SignUpFormState extends State<SignUpForm> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       height: 587,
       child: Card(
@@ -31,13 +26,13 @@ class _SignUpFormState extends State<SignUpForm> {
             const SizedBox(
               height: 35,
             ),
-            RegistrationFormField(
+            const RegistrationFormField(
               label: TextConstants.name,
             ),
             const SizedBox(
               height: 35,
             ),
-            RegistrationFormField(
+            const RegistrationFormField(
               label: TextConstants.email,
             ),
             const SizedBox(
@@ -46,7 +41,14 @@ class _SignUpFormState extends State<SignUpForm> {
             RegistrationFormField(
               label: TextConstants.password,
               button: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  var obscureText = ref
+                      .watch(AppProviders.passwordObscureTextProvider.state)
+                      .state;
+                  ref
+                      .read(AppProviders.passwordObscureTextProvider.state)
+                      .state = !obscureText;
+                },
                 icon: Assets.eyeImage,
               ),
             ),
@@ -56,7 +58,14 @@ class _SignUpFormState extends State<SignUpForm> {
             RegistrationFormField(
               label: TextConstants.confirmPassword,
               button: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  var obscureText = ref
+                      .watch(AppProviders.passwordObscureTextProvider.state)
+                      .state;
+                  ref
+                      .read(AppProviders.passwordObscureTextProvider.state)
+                      .state = !obscureText;
+                },
                 icon: Assets.eyeImage,
               ),
             ),

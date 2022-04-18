@@ -22,7 +22,6 @@ class Application extends StatelessWidget {
         AppRoutes.logInScreen: (_) => const LogIn(),
         AppRoutes.signUpScreen: (_) => const SignUp(),
         AppRoutes.shopScreen: (_) => const MainForm(),
-        AppRoutes.settingsScreen: (_) => const SettingsForm(),
         AppRoutes.settingsScreen: (_) => const SettingChangingForm(),
         AppRoutes.cartScreen: (_) => const Cart(),
       },
