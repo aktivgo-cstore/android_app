@@ -24,9 +24,9 @@ class Cart extends StatelessWidget {
       );
     }
 
-    int sum = 0;
-    for (int i = 0; i < productTiles.length; ++i) {
-      sum += productTiles[i].count * productTiles[i].price;
+    var sum = 0;
+    for (var i = 0; i < productTiles.length; ++i) {
+      sum += productTiles[i].price;
     }
 
     return Scaffold(
