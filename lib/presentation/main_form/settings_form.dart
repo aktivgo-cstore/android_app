@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
@@ -27,7 +28,13 @@ class SettingsForm extends StatelessWidget {
                 style: TextStyles.personalInfoTextStyle,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.settingsScreen,
+                  );
+                },
                 icon: Assets.editPersonalInfoImage,
               ),
             ],

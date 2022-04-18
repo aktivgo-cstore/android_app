@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/colors.dart';
 import '../../configuration/text_constants.dart';
@@ -74,7 +75,13 @@ class _LogInFormState extends State<LogInForm> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.shopScreen,
+                    );
+                  },
                   child: Text(
                     TextConstants.login,
                     style: TextStyles.elevatedButtonForFormTextStyle,
@@ -87,7 +94,13 @@ class _LogInFormState extends State<LogInForm> {
             ),
             Align(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.signUpScreen,
+                  );
+                },
                 style: ButtonStyle(
                   overlayColor:
                       MaterialStateProperty.all(AppColors.tapButtonColor),

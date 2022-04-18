@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/app_routes.dart';
 import '../../configuration/colors.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
@@ -76,7 +77,13 @@ class SettingChangingForm extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.shopScreen,
+                  );
+                },
                 child: Text(
                   TextConstants.save,
                   style: TextStyles.saveTextStyle,

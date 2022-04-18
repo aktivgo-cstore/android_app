@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
@@ -18,7 +19,13 @@ class TopCart extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.shopScreen,
+                );
+              },
               icon: Assets.previousImage,
             ),
           ),
