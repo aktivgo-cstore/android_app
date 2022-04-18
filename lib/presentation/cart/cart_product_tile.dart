@@ -8,7 +8,6 @@ import '../../configuration/text_styles.dart';
 class CartProductTile extends StatefulWidget {
   String title, imagePath;
   int price;
-  int count = 1;
 
   CartProductTile({
     required this.imagePath,
@@ -50,56 +49,6 @@ class _CartProductTileState extends State<CartProductTile> {
                   Text(
                     TextConstants.rub + ' ' + widget.price.toString(),
                     style: TextStyles.cartProductTilePriceTextStyle,
-                  ),
-                  Row(
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: AppColors.textFieldLineColor,
-                          elevation: 1,
-                          minimumSize: const Size(30, 30),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(7),
-                          ),
-                        ),
-                        child: Assets.plusImage,
-                        onPressed: () {
-                          if (widget.count < 10) {
-                            setState(() {
-                              widget.count++;
-                            });
-                          }
-                        },
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        widget.count.toString(),
-                        style: TextStyles.cartProductTileCountTextStyle,
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: AppColors.textFieldLineColor,
-                          elevation: 1,
-                          minimumSize: const Size(30, 30),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(7),
-                          ),
-                        ),
-                        child: Assets.minusImage,
-                        onPressed: () {
-                          if (widget.count > 1) {
-                            setState(() {
-                              widget.count--;
-                            });
-                          }
-                        },
-                      ),
-                    ],
                   ),
                 ],
               ),
