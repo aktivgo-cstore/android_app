@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/app_routes.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
 import 'cart_product_form.dart';
@@ -74,7 +75,13 @@ class Cart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.shopScreen,
+                  );
+                },
                 child: Text(
                   TextConstants.checkOut,
                   style: TextStyles.saveTextStyle,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../configuration/app_routes.dart';
 import '../configuration/assets.dart';
 import '../configuration/colors.dart';
 import '../configuration/text_constants.dart';
@@ -44,7 +45,13 @@ class Home extends StatelessWidget {
               height: 66,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.logInScreen,
+                );
+              },
               style: ElevatedButton.styleFrom(
                 primary: AppColors.homePageButtonColor,
                 elevation: 3,

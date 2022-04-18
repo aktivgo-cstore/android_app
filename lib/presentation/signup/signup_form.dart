@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/colors.dart';
 import '../../configuration/text_constants.dart';
@@ -74,7 +75,13 @@ class _SignUpFormState extends State<SignUpForm> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.shopScreen,
+                    );
+                  },
                   child: Text(
                     TextConstants.signUp,
                     style: TextStyles.elevatedButtonForFormTextStyle,
@@ -97,7 +104,13 @@ class _SignUpFormState extends State<SignUpForm> {
                     overlayColor:
                         MaterialStateProperty.all(AppColors.tapButtonColor),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.logInScreen,
+                    );
+                  },
                   child: Text(
                     TextConstants.signIn,
                     style: TextStyles.signInTextStyle,
