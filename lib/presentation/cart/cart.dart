@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../configuration/app_routes.dart';
+import '../../configuration/colors.dart';
 import '../../configuration/providers.dart';
 import '../../configuration/shared_prefs_constants.dart';
 import '../../configuration/text_constants.dart';
@@ -128,16 +129,73 @@ class CartWidget extends ConsumerWidget {
             ),
           );
         } else {
-          return const Scaffold(
+          return Scaffold(
             backgroundColor: Colors.white,
-            body: CircularProgressIndicator(),
+            body: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 44),
+                  child: TopCart(),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      CircularProgressIndicator(
+                        color: AppColors.helloColor,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 40, right: 40),
+                  height: 27,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        TextConstants.total,
+                        style: TextStyles.cartTotalTextStyle,
+                      ),
+                      Text(
+                        TextConstants.rub + '0',
+                        style: TextStyles.cartSumTextStyle,
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Align(
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 30),
+                    height: 60,
+                    width: 335,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.black,
+                        elevation: 3,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        TextConstants.checkOut,
+                        style: TextStyles.saveTextStyle,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+              ],
+            ),
           );
         }
       },
     );
-  }
-
-  bool _setsAreEquals(Set<Product> s1, Set<Product> s2) {
-    return (s1.length == s2.length) && s2.containsAll(s1);
   }
 }
