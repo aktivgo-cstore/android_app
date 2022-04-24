@@ -32,4 +32,6 @@ class TextConstants {
   static const rub = '₽';
 
   static const checkOut = 'Check out';
+
+  static const error = 'Error';
 }

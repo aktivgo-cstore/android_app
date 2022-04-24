@@ -46,7 +46,7 @@ class LogIn extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          const LogInForm(),
+          LogInForm(),
         ],
       ),
     );

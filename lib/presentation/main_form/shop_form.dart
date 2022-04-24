@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/shared_prefs_constants.dart';
+import '../../domain/model/product.dart';
+import '../../internal/repository_module.dart';
+import '../../internal/shared_prefs_module.dart';
 import 'product_tile.dart';
 
 class ShopForm extends StatelessWidget {
@@ -7,25 +11,34 @@ class ShopForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var productTiles = <ProductTile>[];
-    for (var i = 0; i < 100; ++i) {
-      productTiles.add(
-        ProductTile(
-          title: 'Huawei D14',
-          price: 42999,
-          imagePath:
-              'https://noutbuk-moscow.ru/i_pars/big_first/HUAWEI-MateBook-D-14quot.jpg',
-        ),
-      );
-    }
-
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+    return FutureBuilder(
+      future: RepositoryModule.productRepository().getProducts(
+        token: SharedPrefsModule.sharedPrefs()
+            .getString(SharedPrefsConstants.token)!,
       ),
-      itemCount: productTiles.length,
-      itemBuilder: (context, index) {
-        return productTiles[index];
+      builder: (context, AsyncSnapshot<List<Product>> snapshot) {
+        if (snapshot.hasData) {
+          var products = snapshot.data!;
+
+          var productTiles = <ProductTile>[];
+          for (final product in products) {
+            productTiles.add(
+              ProductTile(product: product),
+            );
+          }
+
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemCount: productTiles.length,
+            itemBuilder: (context, index) {
+              return productTiles[index];
+            },
+          );
+        } else {
+          return CircularProgressIndicator();
+        }
       },
     );
   }

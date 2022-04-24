@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../configuration/app_routes.dart';
 import '../../configuration/colors.dart';
+import '../../configuration/shared_prefs_constants.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
+import '../../internal/shared_prefs_module.dart';
 import 'setting_changing_tile.dart';
 
 class SettingChangingForm extends StatelessWidget {
@@ -44,21 +46,24 @@ class SettingChangingForm extends StatelessWidget {
                   ),
                   SettingChangingTile(
                     label: TextConstants.name,
-                    value: 'Жмыщенко Николай',
+                    value: SharedPrefsModule.sharedPrefs()
+                        .getString(SharedPrefsConstants.name)!,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   SettingChangingTile(
                     label: TextConstants.email,
-                    value: 'vladko4kin1@yandex.ru',
+                    value: SharedPrefsModule.sharedPrefs()
+                        .getString(SharedPrefsConstants.email)!,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   SettingChangingTile(
                     label: TextConstants.password,
-                    value: '1230321',
+                    value: SharedPrefsModule.sharedPrefs()
+                        .getString(SharedPrefsConstants.password)!,
                   ),
                 ],
               ),

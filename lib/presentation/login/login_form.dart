@@ -5,12 +5,19 @@ import '../../configuration/app_routes.dart';
 import '../../configuration/assets.dart';
 import '../../configuration/colors.dart';
 import '../../configuration/providers.dart';
+import '../../configuration/shared_prefs_constants.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
+import '../../data/api/exception/login_exception.dart';
+import '../../internal/repository_module.dart';
+import '../../internal/shared_prefs_module.dart';
 import '../form_field.dart';
 
 class LogInForm extends ConsumerWidget {
-  const LogInForm({Key? key}) : super(key: key);
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  LogInForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,14 +33,16 @@ class LogInForm extends ConsumerWidget {
             const SizedBox(
               height: 35,
             ),
-            const RegistrationFormField(
+            RegistrationFormField(
               label: TextConstants.email,
+              textController: _emailController,
             ),
             const SizedBox(
               height: 35,
             ),
             RegistrationFormField(
               label: TextConstants.password,
+              textController: _passwordController,
               button: IconButton(
                 onPressed: () {
                   var obscureText = ref
@@ -77,12 +86,51 @@ class LogInForm extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.shopScreen,
-                    );
+                  onPressed: () async {
+                    try {
+                      var user = await RepositoryModule.userRepository().login(
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                      );
+
+                      SharedPrefsModule.sharedPrefs()
+                          .setBool(SharedPrefsConstants.login, true);
+                      SharedPrefsModule.sharedPrefs()
+                          .setString(SharedPrefsConstants.token, user.token);
+                      SharedPrefsModule.sharedPrefs()
+                          .setInt(SharedPrefsConstants.id, user.id);
+                      SharedPrefsModule.sharedPrefs()
+                          .setString(SharedPrefsConstants.name, user.name);
+                      SharedPrefsModule.sharedPrefs().setString(
+                        SharedPrefsConstants.email,
+                        _emailController.text,
+                      );
+                      SharedPrefsModule.sharedPrefs().setString(
+                        SharedPrefsConstants.password,
+                        _passwordController.text,
+                      );
+
+                      Navigator.pop(context);
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.shopScreen,
+                      );
+                    } on LoginException catch (e) {
+                      final alert = AlertDialog(
+                        titleTextStyle: TextStyles.helloLineTextStyle,
+                        title: const Text(
+                          TextConstants.error,
+                        ),
+                        content: Text(e.cause),
+                        contentTextStyle: TextStyles.formFieldTextStyle,
+                      );
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
+                        },
+                      );
+                    }
                   },
                   child: Text(
                     TextConstants.login,
