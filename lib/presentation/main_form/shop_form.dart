@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../configuration/colors.dart';
 import '../../configuration/shared_prefs_constants.dart';
 import '../../domain/model/product.dart';
 import '../../internal/repository_module.dart';
@@ -37,7 +38,14 @@ class ShopForm extends StatelessWidget {
             },
           );
         } else {
-          return CircularProgressIndicator();
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              CircularProgressIndicator(
+                color: AppColors.helloColor,
+              ),
+            ],
+          );
         }
       },
     );

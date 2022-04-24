@@ -23,7 +23,7 @@ class ProductTile extends StatefulWidget {
 
 class _ProductTileState extends State<ProductTile> {
   final defaultImage =
-      "http://itsmyday.ru/wp-content/uploads/2016/02/12697058_10154634863806808_5985350271710149919_o.jpg";
+      'http://itsmyday.ru/wp-content/uploads/2016/02/12697058_10154634863806808_5985350271710149919_o.jpg';
 
   @override
   Widget build(BuildContext context) {

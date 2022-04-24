@@ -21,8 +21,9 @@ class CartProductTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final defaultImage =
-        "http://itsmyday.ru/wp-content/uploads/2016/02/12697058_10154634863806808_5985350271710149919_o.jpg";
+    const defaultImage =
+        'http://itsmyday.ru/wp-content/uploads/2016/02/12697058_10154634863806808_5985350271710149919_o.jpg';
+
     return Card(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
