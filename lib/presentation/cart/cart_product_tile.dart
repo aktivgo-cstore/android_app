@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../configuration/assets.dart';
-import '../../configuration/colors.dart';
+import '../../configuration/providers.dart';
+import '../../configuration/shared_prefs_constants.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
+import '../../domain/model/product.dart';
+import '../../internal/repository_module.dart';
+import '../../internal/shared_prefs_module.dart';
 
-class CartProductTile extends StatefulWidget {
-  String title, imagePath;
-  int price;
+class CartProductTile extends ConsumerWidget {
+  Product product;
 
   CartProductTile({
-    required this.imagePath,
-    required this.title,
-    required this.price,
+    required this.product,
     Key? key,
   }) : super(key: key);
 
   @override
-  State<CartProductTile> createState() => _CartProductTileState();
-}
-
-class _CartProductTileState extends State<CartProductTile> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final defaultImage =
+        "http://itsmyday.ru/wp-content/uploads/2016/02/12697058_10154634863806808_5985350271710149919_o.jpg";
     return Card(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,7 +31,11 @@ class _CartProductTileState extends State<CartProductTile> {
           Row(
             children: [
               SizedBox(
-                child: Image.network(widget.imagePath),
+                child: product.image.isEmpty
+                    ? Image.network(defaultImage)
+                    : (product.image.endsWith(".svg")
+                        ? SvgPicture.network(product.image)
+                        : Image.network(product.image)),
                 height: 100,
                 width: 100,
               ),
@@ -40,14 +44,14 @@ class _CartProductTileState extends State<CartProductTile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.title,
+                    product.title,
                     style: TextStyles.cartProductTileTitleTextStyle,
                   ),
                   const SizedBox(
                     height: 6,
                   ),
                   Text(
-                    TextConstants.rub + ' ' + widget.price.toString(),
+                    TextConstants.rub + ' ' + product.price.toString(),
                     style: TextStyles.cartProductTilePriceTextStyle,
                   ),
                 ],
@@ -55,7 +59,21 @@ class _CartProductTileState extends State<CartProductTile> {
             ],
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await RepositoryModule.cartRepository().deleteProduct(
+                userId: SharedPrefsModule.sharedPrefs()
+                    .getInt(SharedPrefsConstants.id)!,
+                productId: product.id,
+                token: SharedPrefsModule.sharedPrefs()
+                    .getString(SharedPrefsConstants.token)!,
+              );
+
+              var updateCart =
+                  ref.watch(AppProviders.updateCartProvider.state).state;
+
+              ref.read(AppProviders.updateCartProvider.state).state =
+                  !updateCart;
+            },
             icon: Assets.deleteImage,
           )
         ],

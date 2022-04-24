@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
-import 'signup_form.dart';
 import '../top_stripe.dart';
+import 'signup_form.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class SignUp extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          const SignUpForm(),
+          SignUpForm(),
         ],
       ),
     );
