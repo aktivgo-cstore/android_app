@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../model/api_products.dart';
 
 class ProductService {
-  static const _BASE_URL = 'https://fd3f-92-255-218-125.eu.ngrok.io';
+  static const _BASE_URL = 'https://2ce0-92-255-218-125.eu.ngrok.io';
 
   Future<ApiProducts> getProducts({required String token}) async {
     var url = Uri.parse(_BASE_URL + '/products');

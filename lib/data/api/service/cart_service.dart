@@ -6,7 +6,7 @@ import '../model/api_cart.dart';
 import '../request/cart_body.dart';
 
 class CartService {
-  static const _BASE_URL = 'https://255f-92-255-218-125.eu.ngrok.io';
+  static const _BASE_URL = 'https://d0af-92-255-218-125.eu.ngrok.io';
 
   Future<ApiCart> getCart({required int userId, required String token}) async {
     var url = Uri.parse(_BASE_URL + '/carts/' + userId.toString());

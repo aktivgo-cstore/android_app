@@ -83,8 +83,8 @@ class _ProductTileState extends State<ProductTile> {
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Text(
-                widget.product.title.length > 19
-                    ? widget.product.title.substring(0, 16) + "..."
+                widget.product.title.length > 15
+                    ? widget.product.title.substring(0, 15) + '...'
                     : widget.product.title,
                 style: TextStyles.productTitleTextStyle,
               ),
