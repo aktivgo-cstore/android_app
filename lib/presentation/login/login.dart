@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../configuration/providers.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
-import 'login_form.dart';
 import '../top_stripe.dart';
+import 'login_form.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({Key? key}) : super(key: key);

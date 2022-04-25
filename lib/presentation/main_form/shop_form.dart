@@ -28,14 +28,16 @@ class ShopForm extends StatelessWidget {
             );
           }
 
-          return GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+          return SafeArea(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemCount: productTiles.length,
+              itemBuilder: (context, index) {
+                return productTiles[index];
+              },
             ),
-            itemCount: productTiles.length,
-            itemBuilder: (context, index) {
-              return productTiles[index];
-            },
           );
         } else {
           return Column(

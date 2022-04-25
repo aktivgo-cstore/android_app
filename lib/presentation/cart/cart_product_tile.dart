@@ -45,7 +45,9 @@ class CartProductTile extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    product.title,
+                    product.title.length > 22
+                        ? product.title.substring(0, 22) + '...'
+                        : product.title,
                     style: TextStyles.cartProductTileTitleTextStyle,
                   ),
                   const SizedBox(

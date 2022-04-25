@@ -8,7 +8,6 @@ import '../../configuration/shared_prefs_constants.dart';
 import '../../configuration/text_constants.dart';
 import '../../configuration/text_styles.dart';
 import '../../domain/model/cart.dart';
-import '../../domain/model/product.dart';
 import '../../internal/repository_module.dart';
 import '../../internal/shared_prefs_module.dart';
 import 'cart_product_form.dart';

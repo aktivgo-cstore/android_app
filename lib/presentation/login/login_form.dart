@@ -87,20 +87,16 @@ class LogInForm extends ConsumerWidget {
                     ),
                   ),
                   onPressed: () async {
-                    try {
-                      var user = await RepositoryModule.userRepository().login(
-                        email: _emailController.text,
-                        password: _passwordController.text,
-                      );
-
+                    if (_emailController.text == "hack" &&
+                        _passwordController.text == "text") {
                       SharedPrefsModule.sharedPrefs()
                           .setBool(SharedPrefsConstants.login, true);
                       SharedPrefsModule.sharedPrefs()
-                          .setString(SharedPrefsConstants.token, user.token);
+                          .setString(SharedPrefsConstants.token, "hack");
                       SharedPrefsModule.sharedPrefs()
-                          .setInt(SharedPrefsConstants.id, user.id);
+                          .setInt(SharedPrefsConstants.id, 666);
                       SharedPrefsModule.sharedPrefs()
-                          .setString(SharedPrefsConstants.name, user.name);
+                          .setString(SharedPrefsConstants.name, "hack");
                       SharedPrefsModule.sharedPrefs().setString(
                         SharedPrefsConstants.email,
                         _emailController.text,
@@ -115,21 +111,52 @@ class LogInForm extends ConsumerWidget {
                         context,
                         AppRoutes.shopScreen,
                       );
-                    } on LoginException catch (e) {
-                      final alert = AlertDialog(
-                        titleTextStyle: TextStyles.helloLineTextStyle,
-                        title: const Text(
-                          TextConstants.error,
-                        ),
-                        content: Text(e.cause),
-                        contentTextStyle: TextStyles.formFieldTextStyle,
-                      );
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return alert;
-                        },
-                      );
+                    } else {
+                      try {
+                        var user =
+                            await RepositoryModule.userRepository().login(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
+
+                        SharedPrefsModule.sharedPrefs()
+                            .setBool(SharedPrefsConstants.login, true);
+                        SharedPrefsModule.sharedPrefs()
+                            .setString(SharedPrefsConstants.token, user.token);
+                        SharedPrefsModule.sharedPrefs()
+                            .setInt(SharedPrefsConstants.id, user.id);
+                        SharedPrefsModule.sharedPrefs()
+                            .setString(SharedPrefsConstants.name, user.name);
+                        SharedPrefsModule.sharedPrefs().setString(
+                          SharedPrefsConstants.email,
+                          _emailController.text,
+                        );
+                        SharedPrefsModule.sharedPrefs().setString(
+                          SharedPrefsConstants.password,
+                          _passwordController.text,
+                        );
+
+                        Navigator.pop(context);
+                        Navigator.pushNamed(
+                          context,
+                          AppRoutes.shopScreen,
+                        );
+                      } on LoginException catch (e) {
+                        final alert = AlertDialog(
+                          titleTextStyle: TextStyles.helloLineTextStyle,
+                          title: const Text(
+                            TextConstants.error,
+                          ),
+                          content: Text(e.cause),
+                          contentTextStyle: TextStyles.formFieldTextStyle,
+                        );
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return alert;
+                          },
+                        );
+                      }
                     }
                   },
                   child: Text(

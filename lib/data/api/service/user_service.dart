@@ -9,7 +9,7 @@ import '../request/logout_body.dart';
 import '../request/registration_body.dart';
 
 class UserService {
-  static const _BASE_URL = 'https://e3a6-92-255-218-125.eu.ngrok.io';
+  static const _BASE_URL = 'https://aeee-92-255-218-125.eu.ngrok.io';
 
   Future<ApiRegistrationUser> register(
     RegistrationBody registrationBody,
