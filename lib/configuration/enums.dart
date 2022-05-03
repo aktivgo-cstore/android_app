@@ -1,0 +1,4 @@
+enum MainPage {
+  home,
+  settings,
+}
